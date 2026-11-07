@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber-report.html",
                 "json:target/cucumber.json"
         },
+        tags="@TRDF",
         monochrome = true
 )
 public class TestRunnerTest {
