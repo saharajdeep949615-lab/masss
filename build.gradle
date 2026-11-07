@@ -59,7 +59,7 @@ tasks.register('sasLab', Test) {
 
     classpath = sourceSets.test.runtimeClasspath
 
-    include '**/runner/TestRunnerTest.java'
+    include '**/src/test/java/runner/TestRunnerTest.java'
 
     systemProperty "cucumber.filter.tags",
             System.getProperty("cucumber.filter.tags")
