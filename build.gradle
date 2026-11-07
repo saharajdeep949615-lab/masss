@@ -32,15 +32,15 @@ dependencies {
     testImplementation 'net.masterthought:cucumber-reporting:5.7.5'
 }
 
-test {
+//test {
 //    useJUnit()
 //    include '**/*RunnerTest.class'
 //    systemProperty "cucumber.filter.tags",
 //            System.getProperty("cucumber.filter.tags")
-}
+//}
 
 
-tasks.register('sasLab', Test) {
+//tasks.register('sasLab', Test) {
 //    useJUnit()
 //    testClassesDirs = sourceSets.test.output.classesDirs
 //    classpath = sourceSets.test.runtimeClasspath
@@ -49,4 +49,27 @@ tasks.register('sasLab', Test) {
 //
 //    systemProperty "cucumber.filter.tags",
 //            System.getProperty("cucumber.filter.tags")
+//}
+
+tasks.register('sasLab', Test) {
+
+    useJUnit()
+
+    testClassesDirs = sourceSets.test.output.classesDirs
+
+    classpath = sourceSets.test.runtimeClasspath
+
+    include '**/*RunnerTest.class'
+
+    systemProperty "cucumber.filter.tags",
+            System.getProperty("cucumber.filter.tags")
+}
+
+tasks.register('generateCucumberReport', JavaExec) {
+
+    dependsOn testClasses
+
+    classpath = sourceSets.test.runtimeClasspath
+
+    mainClass.set('reports.GenerateReport')
 }
